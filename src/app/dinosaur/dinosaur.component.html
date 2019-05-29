@@ -1,0 +1,33 @@
+<div class="col-4 mb-5 text-center">
+  <div class="card shadow zoomHero" style="width: 15rem;" [ngSwitch]="dinosaur.race.name">
+    <span *ngSwitchCase="'Tyrannosaurus'"><img class="card-img-top imgRace" src="../../assets/img/tyrannosaurus.jpg"
+        [alt]="dinosaur.race"></span>
+    <span *ngSwitchCase="'Stegosaurus'"><img class="card-img-top imgRace" src="../../assets/img/stegosaurus.jpg"
+        [alt]="dinosaur.race"></span>
+    <span *ngSwitchCase="'Pterodactylus'"><img class="card-img-top imgRace" src="../../assets/img/pterodactylus.jpg  "
+        [alt]="dinosaur.race"></span>
+    <span *ngSwitchCase="'Archaeopteryx'"><img class="card-img-top imgRace" src="../../assets/img/archaeopteryx.gif"
+        [alt]="dinosaur.race"></span>
+    <span *ngSwitchCase="'Mesosaurus'"><img class="card-img-top imgRace" src="../../assets/img/mesosaurus.jpg"
+        [alt]="dinosaur.race"></span>
+    <span *ngSwitchDefault>Aucune image</span>
+    <em class="color text-secondary">{{dinosaur.race.name}}</em>
+    <div class="card-body">
+      <h5 class="card-title">{{dinosaur.name}}</h5>
+      <p class="card-text">{{dinosaur.race.name}}</p>
+      <p [ngSwitch]="dinosaur.working">
+        <span *ngSwitchCase="true"><img src="../../assets/img/workTrue.jpg" [alt]="dinosaur.working"
+            class="imgWork"></span>
+        <span *ngSwitchDefault><img src="../../assets/img/workFalse.png" [alt]="dinosaur.working"
+            class="imgWork"></span>
+      </p>
+    </div>
+    <div class="text-center mb-5">
+      <form (submit)="delete()">
+          <input required type="hidden" class="form-control" id="id" [(ngModel)]="id" name="id" [value]="dinosaur.id"
+          aria-describedby="emailHelp" placeholder="Enter name of dinosaur">
+        <button class="btn btn-danger">DELETE</button>
+      </form>
+    </div>
+  </div>
+</div>

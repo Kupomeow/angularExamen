@@ -1,0 +1,15 @@
+<div class="row mb-5">
+  <div class="col-12 text-center text-info">
+    <h1>All parks in CrétacéPark</h1>
+  </div>
+</div>
+
+<div class="row mb-5 mt-5">
+  <div class="col-12 text-center text-secondary">
+    <h2>Here is the list of Cretaceous robots in the park:</h2>
+  </div>
+</div>
+
+<div class="row">
+  <app-park *ngFor="let park of parks" [park]="park"></app-park>
+</div>

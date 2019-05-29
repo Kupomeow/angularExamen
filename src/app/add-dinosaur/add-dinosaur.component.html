@@ -1,0 +1,55 @@
+<div class="row">
+  <div class="col-12 text-center">
+    <h1 class="text-info mb-5">Add a dinosaur</h1>
+    <h5 class="mt-5 font-weight-light font-italic">Please, thanks to fill in all fields</h5>
+  </div>
+</div>
+
+<div class="row justify-content-center">
+  <div class="col-4">
+
+    <div class="row text-center">
+      <div class="col-12" [ngSwitch]="status">
+        <p *ngSwitchCase="400" class="text-danger">incorrect values fill in fields</p>
+        <p *ngSwitchDefault=""></p>
+      </div>
+    </div>
+
+    <form (submit)="save()" #f="ngForm">
+      <div class="form-group">
+        <label for="name">Name: </label>
+        <input required type="text" class="form-control" id="name" [(ngModel)]="name" name="name"
+          aria-describedby="emailHelp" placeholder="Enter name of dinosaur">
+      </div>
+      <div class="form-group">
+        <label for="race">Race: </label>
+        <select required class="form-control" name="race" [(ngModel)]="race">
+          <option *ngFor="let race of races" [ngValue]="race.id">{{race.name}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="park">Park: </label>
+        <select required class="form-control" name="park" [(ngModel)]="park">
+          <option *ngFor="let park of parks" [ngValue]="park.id">{{park.name}}</option>
+        </select>
+      </div>
+      <div class="text-center mb-2 mt-2">
+        <label class="mr-2" for="work">Is working: </label>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" [(ngModel)]="working" name="inlineRadioOptions" id="work" [value]="true" checked>
+          <label class="form-check-label" for="inlineRadio1">Oui</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" [(ngModel)]="working" name="inlineRadioOptions" id="work" [value]="false">
+          <label class="form-check-label" for="inlineRadio2">Non</label>
+        </div>
+      </div>
+
+
+
+      <div class=text-center>
+        <button type="submit" class="btn btn-primary" [disabled]="f.invalid">ADD</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+.imgWork {
+    max-width: 2rem;
+}
+
+.imgRace {
+    max-height: 10rem;
+}
+
+.zoomHero:hover {
+    transform: scale(1.05);
+}
